@@ -4,220 +4,235 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>María Alejandra Córdoba Gutiérrez | Wedding Planner</title>
+<title>María Alejandra Córdoba Gutiérrez</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #faf8f5;
-  color: #5a4d42;
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#f8f5f1;
+  color:#4a4036;
 }
 
-/* HEADER */
-header {
-  text-align: center;
-  padding: 100px 20px 60px;
+/* HERO CON IMAGEN */
+.hero{
+  height:100vh;
+  background:url('https://images.unsplash.com/photo-1606800052052-a08af7148866?fm=jpg&q=60&w=3000') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
 }
 
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  margin: 0;
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,0.6);
 }
 
-.subtitle {
-  margin-top: 10px;
-  font-size: 18px;
-  opacity: 0.7;
+.hero-content{
+  position:relative;
+  animation:fadeUp 1s ease;
 }
 
-.rating {
-  margin-top: 10px;
-  font-size: 22px;
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:52px;
+}
+
+.hero p{
+  margin-top:10px;
+  opacity:0.7;
+}
+
+.btn{
+  margin-top:25px;
+  padding:14px 30px;
+  border-radius:30px;
+  border:1px solid #c6a97e;
+  background:transparent;
+  cursor:pointer;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* TEXTO */
+.content{
+  max-width:800px;
+  margin:auto;
+  padding:100px 20px;
+  text-align:center;
+  line-height:1.8;
 }
 
 /* CARRUSEL */
-.carousel {
-  position: relative;
-  max-width: 800px;
-  margin: 40px auto;
-  overflow: hidden;
-  border-radius: 20px;
+.carousel{
+  position:relative;
+  overflow:hidden;
+  max-width:900px;
+  margin:60px auto;
+  border-radius:20px;
 }
 
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
+.track{
+  display:flex;
+  transition:transform 0.6s ease;
 }
 
-.carousel img {
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
-  flex-shrink: 0;
+.track img{
+  width:100%;
+  height:500px;
+  object-fit:cover;
 }
 
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.7);
-  border: none;
-  font-size: 28px;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 50%;
+/* FLECHAS */
+.arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#ffffffcc;
+  border:none;
+  font-size:24px;
+  padding:12px;
+  cursor:pointer;
+  border-radius:50%;
 }
 
-.left { left: 10px; }
-.right { right: 10px; }
+.left{left:10px;}
+.right{right:10px;}
 
 /* FORM */
-.section {
-  padding: 80px 20px;
+form{
+  max-width:600px;
+  margin:100px auto;
+  display:grid;
+  gap:15px;
 }
 
-form {
-  max-width: 600px;
-  margin: auto;
-  display: grid;
-  gap: 15px;
+input,textarea{
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #ddd;
 }
 
-input, textarea {
-  padding: 14px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  font-family: inherit;
+button{
+  padding:15px;
+  border:none;
+  border-radius:30px;
+  background:#e8dfd4;
+  cursor:pointer;
 }
 
-button {
-  background: #e8dfd4;
-  border: none;
-  padding: 15px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: 0.3s;
+/* BOTÓN FLOTANTE */
+.float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#c6a97e;
+  color:white;
+  padding:15px 20px;
+  border-radius:30px;
+  text-decoration:none;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
-button:hover {
-  background: #d8cfc4;
-}
-
-footer {
-  text-align: center;
-  padding: 40px;
-  font-size: 14px;
-  opacity: 0.6;
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px;
+  opacity:0.6;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>María Alejandra Córdoba Gutiérrez</h1>
-  <div class="subtitle">Wedding Planner · Diseñadora de momentos inolvidables</div>
-  <div class="rating">★ ★ ★ ★ ★</div>
-</header>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>María Alejandra Córdoba Gutiérrez</h1>
+    <p>Wedding Planner · Experiencias únicas</p>
+    <button class="btn">Cotiza tu evento</button>
+  </div>
+</section>
+
+<!-- TEXTO -->
+<section class="content">
+  Creamos bodas que no solo se ven increíbles, sino que se sienten.
+  Diseñamos cada detalle para transformar tu historia en una experiencia inolvidable.
+</section>
 
 <!-- CARRUSEL -->
 <div class="carousel">
   <button class="arrow left">&#10094;</button>
-
-  <div class="carousel-track">
+  <div class="track">
     <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?fm=jpg&q=60&w=3000">
     <img src="https://luciasecasa.com/wp-content/uploads/2024/04/novios-boda-baile-e1716975372265-960x1183.jpg">
     <img src="https://images.squarespace-cdn.com/content/v1/56216fc2e4b059c47b425496/aeaa823f-5935-40a2-9d7d-8f6a4af0338a/Las+fotos+que+no+pueden+faltar+en+el+d%C3%ADa+de+tu+boda?format=2500w">
   </div>
-
   <button class="arrow right">&#10095;</button>
 </div>
 
-<!-- CONTACTO -->
-<section class="section">
-  <h2 style="text-align:center;font-family:'Playfair Display'">Contáctanos</h2>
+<!-- FORM -->
+<form id="contactForm">
+  <input name="nombre" placeholder="Nombre" required>
+  <input name="email" placeholder="Email" required>
+  <textarea name="mensaje" placeholder="Cuéntanos tu idea"></textarea>
+  <button type="submit">Enviar</button>
+</form>
 
-  <form id="contactForm">
-    <input name="nombre" placeholder="Nombre completo" required>
-    <input name="email" type="email" placeholder="Correo electrónico" required>
-    <input name="telefono" placeholder="Teléfono">
-    <input name="fecha" type="date">
-    <input name="ubicacion" placeholder="Ciudad del evento">
-    <input name="invitados" placeholder="Número de invitados">
-    <textarea name="mensaje" placeholder="Cuéntanos tu idea..." required></textarea>
-    <button type="submit">Enviar mensaje</button>
-  </form>
-</section>
+<!-- BOTÓN FLOTANTE -->
+<a class="float" href="https://wa.me/573046338009" target="_blank">Mensaje</a>
 
 <footer>
-  © 2026 Wedding Planner | alecorgu11@gmail.com | +57 304 6338009
+  © 2026 · Wedding Planner · alecorgu11@gmail.com
 </footer>
 
 <script>
 // CARRUSEL
-const track = document.querySelector(".carousel-track");
-const images = document.querySelectorAll(".carousel img");
+const track = document.querySelector(".track");
+const imgs = document.querySelectorAll(".track img");
+let i = 0;
 
-let index = 0;
-
-document.querySelector(".right").onclick = () => {
-  index = (index + 1) % images.length;
-  update();
+document.querySelector(".right").onclick = ()=>{
+  i=(i+1)%imgs.length;
+  track.style.transform=`translateX(-${i*100}%)`;
 };
 
-document.querySelector(".left").onclick = () => {
-  index = (index - 1 + images.length) % images.length;
-  update();
+document.querySelector(".left").onclick = ()=>{
+  i=(i-1+imgs.length)%imgs.length;
+  track.style.transform=`translateX(-${i*100}%)`;
 };
 
-function update() {
-  track.style.transform = `translateX(-${index * 100}%)`;
-}
-
-// FORMULARIO
-document.querySelector("#contactForm").addEventListener("submit", async (e) => {
+// FORM
+document.querySelector("#contactForm").addEventListener("submit", async(e)=>{
   e.preventDefault();
 
-  const form = e.target;
-  const btn = form.querySelector("button");
-
-  btn.innerText = "Enviando...";
-  btn.disabled = true;
+  const f = e.target;
 
   const data = {
-    nombre: form.nombre.value,
-    email: form.email.value,
-    telefono: form.telefono.value,
-    fecha: form.fecha.value,
-    ubicacion: form.ubicacion.value,
-    invitados: form.invitados.value,
-    mensaje: form.mensaje.value
+    nombre:f.nombre.value,
+    email:f.email.value,
+    mensaje:f.mensaje.value
   };
 
-  try {
-    const res = await fetch("/api/leads", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    });
+  await fetch("/api/leads",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(data)
+  });
 
-    if (!res.ok) throw new Error();
-
-    alert("Mensaje enviado ✨");
-    form.reset();
-
-  } catch {
-    alert("Error al enviar");
-  }
-
-  btn.innerText = "Enviar mensaje";
-  btn.disabled = false;
+  alert("Mensaje enviado");
+  f.reset();
 });
 </script>
 
