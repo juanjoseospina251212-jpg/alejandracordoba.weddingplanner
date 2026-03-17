@@ -3,154 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elegance Wedding</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Wedding Planner</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-font-family:'Poppins',sans-serif;
-background:#fffafc;
-color:#444;
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #faf8f5;
+  color: #5a4d42;
 }
 
-/* HEADER */
-header{
-text-align:center;
-padding:100px 20px;
-background:linear-gradient(135deg,#ffd6e0,#e0f0ff);
+header {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(to bottom, #ffffff, #f5efe9);
 }
 
-header h1{
-font-family:'Great Vibes',cursive;
-font-size:4rem;
-color:#b5838d;
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  margin: 0;
 }
 
-header p{
-margin-top:15px;
-font-size:1.2rem;
+.subtitle {
+  margin-top: 10px;
+  font-size: 18px;
+  opacity: 0.7;
 }
 
-/* NAV */
-nav{
-display:flex;
-justify-content:center;
-gap:30px;
-padding:15px;
-background:white;
-position:sticky;
-top:0;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
+.section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
 }
 
-nav a{
-text-decoration:none;
-color:#b5838d;
-font-weight:600;
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
 }
 
-/* HERO */
-.hero{
-text-align:center;
-padding:80px 20px;
+.gallery img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  height: 300px;
 }
 
-.hero h2{
-font-size:2.5rem;
-color:#6d597a;
+form {
+  display: grid;
+  gap: 15px;
+  max-width: 600px;
+  margin: auto;
 }
 
-.hero p{
-max-width:600px;
-margin:20px auto;
+input, textarea {
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-family: inherit;
 }
 
-/* BOTÓN */
-.btn{
-display:inline-block;
-margin-top:20px;
-padding:12px 30px;
-border-radius:30px;
-background:#ffafcc;
-color:white;
-text-decoration:none;
-font-weight:600;
+button {
+  background: #e8dfd4;
+  border: none;
+  padding: 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
-/* SERVICIOS */
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-padding:60px;
+button:hover {
+  background: #d8cfc4;
 }
 
-.card{
-background:white;
-padding:25px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
-}
-
-/* GALERÍA */
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-padding:60px;
-}
-
-.gallery img{
-width:100%;
-height:250px;
-object-fit:cover;
-border-radius:15px;
-transition:0.3s;
-}
-
-.gallery img:hover{
-transform:scale(1.05);
-}
-
-/* SOBRE NOSOTROS */
-.about{
-text-align:center;
-padding:80px 20px;
-background:#fff0f6;
-}
-
-.about p{
-max-width:600px;
-margin:auto;
-}
-
-/* CONTACTO */
-.contact{
-text-align:center;
-padding:80px 20px;
-background:linear-gradient(135deg,#e0f0ff,#fff0f6);
-}
-
-form{
-max-width:400px;
-margin:auto;
-}
-
-input,textarea{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:10px;
-border:1px solid #ccc;
-}
-
-footer{
-text-align:center;
-padding:20px;
-font-size:0.9rem;
+footer {
+  text-align: center;
+  padding: 40px;
+  font-size: 14px;
+  opacity: 0.6;
 }
 </style>
 </head>
@@ -158,71 +93,85 @@ font-size:0.9rem;
 <body>
 
 <header>
-<h1>Elegance Wedding</h1>
-<p>Donde los sueños se convierten en recuerdos eternos</p>
+  <h1>Wedding Planner</h1>
+  <div class="subtitle">Creamos bodas elegantes, íntimas y memorables</div>
 </header>
 
-<nav>
-<a href="#">Inicio</a>
-<a href="#services">Servicios</a>
-<a href="#gallery">Galería</a>
-<a href="#about">Nosotros</a>
-<a href="#contact">Contacto</a>
-</nav>
+<section class="section">
+  <h2 style="text-align:center;font-family:'Playfair Display';">Galería</h2>
 
-<section class="hero">
-<h2>La boda que siempre imaginaste</h2>
-<p>Creamos experiencias únicas, llenas de emoción, detalle y amor en cada momento.</p>
-<a href="#contact" class="btn">Reservar fecha</a>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?fm=jpg&q=60&w=3000">
+    <img src="https://luciasecasa.com/wp-content/uploads/2024/04/novios-boda-baile-e1716975372265-960x1183.jpg">
+    <img src="https://images.squarespace-cdn.com/content/v1/56216fc2e4b059c47b425496/aeaa823f-5935-40a2-9d7d-8f6a4af0338a/Las+fotos+que+no+pueden+faltar+en+el+d%C3%ADa+de+tu+boda?format=2500w">
+  </div>
 </section>
 
-<section id="services" class="services">
-<div class="card">
-<h3>Planeación completa</h3>
-<p>Desde la idea hasta el último detalle.</p>
-</div>
-<div class="card">
-<h3>Decoración</h3>
-<p>Ambientes elegantes y personalizados.</p>
-</div>
-<div class="card">
-<h3>Coordinación</h3>
-<p>Todo bajo control el día del evento.</p>
-</div>
-</section>
+<section class="section">
+  <h2 style="text-align:center;font-family:'Playfair Display';">Contáctanos</h2>
 
-<section id="gallery" class="gallery">
-<img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?fm=jpg&q=60&w=3000&auto=format&fit=crop">
-<img src="https://luciasecasa.com/wp-content/uploads/2024/04/novios-boda-baile-e1716975372265-960x1183.jpg">
-<img src="https://images.squarespace-cdn.com/content/v1/56216fc2e4b059c47b425496/aeaa823f-5935-40a2-9d7d-8f6a4af0338a/Las+fotos+que+no+pueden+faltar+en+el+d%C3%ADa+de+tu+boda?format=2500w">
-</section>
-
-<section id="about" class="about">
-<h2>Sobre nosotros</h2>
-<p>No solo organizamos bodas. Creamos momentos que se sienten como en casa, llenos de amor, cercanía y detalles que hacen la diferencia.</p>
-</section>
-
-<section id="contact" class="contact">
-<h2>Contáctanos</h2>
-
-<form action="https://formsubmit.co/alecorgu11@gmail.com" method="POST">
-<input type="hidden" name="_captcha" value="false">
-
-<input type="text" name="Nombre" placeholder="Nombre" required>
-<input type="email" name="Correo" placeholder="Correo" required>
-<textarea name="Mensaje" placeholder="Mensaje" required></textarea>
-
-<button class="btn" type="submit">Enviar</button>
-</form>
-
-<p>Email: alecorgu11@gmail.com</p>
-<p>Tel: +57 304 6338009</p>
-
+  <form id="contactForm">
+    <input name="nombre" placeholder="Nombre completo" required>
+    <input name="email" type="email" placeholder="Correo electrónico" required>
+    <input name="telefono" placeholder="Teléfono">
+    <input name="fecha" type="date">
+    <input name="ubicacion" placeholder="Ciudad del evento">
+    <input name="invitados" placeholder="Número de invitados">
+    <textarea name="mensaje" placeholder="Cuéntanos tu idea..." required></textarea>
+    <button type="submit">Enviar mensaje</button>
+  </form>
 </section>
 
 <footer>
-<p>© 2026 Elegance Wedding</p>
+  © 2026 Wedding Planner | alecorgu11@gmail.com | +57 304 6338009
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("#contactForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const btn = form.querySelector("button");
+    const originalText = btn.innerText;
+
+    btn.innerText = "Enviando...";
+    btn.disabled = true;
+
+    const data = {
+      nombre: form.nombre.value.trim(),
+      email: form.email.value.trim(),
+      telefono: form.telefono.value.trim(),
+      fecha: form.fecha.value,
+      ubicacion: form.ubicacion.value.trim(),
+      invitados: form.invitados.value.trim(),
+      mensaje: form.mensaje.value.trim()
+    };
+
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!res.ok) throw new Error();
+
+      alert("Mensaje enviado ✨");
+      form.reset();
+
+    } catch {
+      alert("Error al enviar");
+    }
+
+    btn.innerText = originalText;
+    btn.disabled = false;
+  });
+});
+</script>
 
 </body>
 </html>
