@@ -8,153 +8,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-  font-family:'Inter',sans-serif;
-  background:#f8f5f1;
-  color:#4a4036;
-}
-
-/* HERO */
-.hero{
-  height:100vh;
-  background:url('https://images.unsplash.com/photo-1606800052052-a08af7148866?fm=jpg&q=60&w=3000') center/cover;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(255,255,255,0.65);
-}
-
-.hero-content{
-  position:relative;
-  max-width:700px;
-  animation:fadeUp 1s ease;
-}
-
-.hero h1{
-  font-family:'Playfair Display',serif;
-  font-size:56px;
-}
-
-.hero p{
-  margin-top:15px;
-  opacity:0.7;
-}
-
-.btn{
-  margin-top:25px;
-  padding:14px 30px;
-  border-radius:30px;
-  border:1px solid #c6a97e;
-  background:transparent;
-  cursor:pointer;
-}
-
-/* ANIMACIONES */
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(40px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-.fade{
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.8s;
-}
-
-.fade.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* SECCIONES */
-.section{
-  padding:120px 20px;
-}
-
-.content{
-  max-width:800px;
-  margin:auto;
-  text-align:center;
-  line-height:1.9;
-  font-size:18px;
-}
-
-/* PORTAFOLIO GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  max-width:1100px;
-  margin:auto;
-}
-
-.grid img{
-  width:100%;
-  height:350px;
-  object-fit:cover;
-  border-radius:15px;
-}
-
-/* BANNER GRANDE */
-.banner{
-  height:500px;
-  background:url('https://luciasecasa.com/wp-content/uploads/2024/04/novios-boda-baile-e1716975372265-960x1183.jpg') center/cover;
-  margin:80px 0;
-}
-
-/* FORM */
-form{
-  max-width:600px;
-  margin:auto;
-  display:grid;
-  gap:15px;
-}
-
-input,textarea{
-  padding:14px;
-  border-radius:10px;
-  border:1px solid #ddd;
-}
-
-/* BOTÓN */
-button{
-  padding:15px;
-  border:none;
-  border-radius:30px;
-  background:#e8dfd4;
-  cursor:pointer;
-}
-
-/* FLOAT */
-.float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#c6a97e;
-  color:white;
-  padding:15px 20px;
-  border-radius:30px;
-  text-decoration:none;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:60px;
-  opacity:0.6;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -163,39 +17,98 @@ footer{
 <section class="hero">
   <div class="hero-content">
     <h1>María Alejandra Córdoba Gutiérrez</h1>
-    <p>Wedding Planner · Experiencias únicas</p>
-    <button class="btn">Cotiza tu evento</button>
+    <p>Wedding Planner · Diseño de experiencias únicas</p>
+    <button class="btn">Agenda tu evento</button>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section fade">
+  <div class="content">
+    <h2>Transformamos momentos en recuerdos eternos</h2>
+    <p>
+      No se trata solo de una boda. Se trata de crear una experiencia completa que refleje tu historia,
+      tu esencia y cada emoción que quieres vivir ese día.
+    </p>
+  </div>
+</section>
+
+<!-- BLOQUE GRANDE -->
+<div class="banner" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552');"></div>
+
+<!-- SOBRE MI -->
+<section class="section fade">
+  <div class="content">
+    <h2>Sobre mí</h2>
+    <p>
+      Soy María Alejandra Córdoba Gutiérrez. Mi enfoque es crear eventos con intención,
+      cuidando cada detalle desde la planificación hasta la ejecución.
+      Cada boda que diseño es única, porque cada historia lo es.
+    </p>
+  </div>
+</section>
+
+<!-- GALERÍA 1 -->
+<section class="section fade">
+  <div class="grid">
+    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
+    <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde">
+    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc">
   </div>
 </section>
 
 <!-- TEXTO -->
 <section class="section fade">
   <div class="content">
-    Creamos bodas que no solo se ven increíbles, sino que se sienten.
-    Diseñamos cada detalle para transformar tu historia en una experiencia inolvidable.
-  </div>
-</section>
-
-<!-- GRID -->
-<section class="section fade">
-  <div class="grid">
-    <img src="https://images.squarespace-cdn.com/content/v1/56216fc2e4b059c47b425496/aeaa823f-5935-40a2-9d7d-8f6a4af0338a/Las+fotos+que+no+pueden+faltar+en+el+d%C3%ADa+de+tu+boda?format=2500w">
-    <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?fm=jpg&q=60&w=3000">
-    <img src="https://luciasecasa.com/wp-content/uploads/2024/04/novios-boda-baile-e1716975372265-960x1183.jpg">
+    <h2>Diseño con propósito</h2>
+    <p>
+      Cada elemento, cada flor, cada luz… todo está pensado para crear una atmósfera perfecta.
+    </p>
   </div>
 </section>
 
 <!-- BANNER -->
-<div class="banner"></div>
+<div class="banner" style="background-image:url('https://images.unsplash.com/photo-1505236858219-8359eb29e329');"></div>
 
-<!-- TEXTO 2 -->
+<!-- SERVICIOS -->
 <section class="section fade">
   <div class="content">
-    Cada boda es una historia distinta. Nuestro objetivo es convertir cada detalle en una experiencia inolvidable para ti y tus invitados.
+    <h2>Servicios</h2>
+    <p>Planeación completa · Diseño · Coordinación del evento</p>
   </div>
 </section>
 
-<!-- FORM -->
+<!-- GALERÍA 2 -->
+<section class="section fade">
+  <div class="grid">
+    <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a">
+    <img src="https://images.unsplash.com/photo-1472653431158-6364773b2a56">
+    <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
+  </div>
+</section>
+
+<!-- FRASE -->
+<section class="section fade">
+  <div class="content">
+    <h2>“No diseñamos eventos, creamos experiencias.”</h2>
+  </div>
+</section>
+
+<!-- BANNER -->
+<div class="banner" style="background-image:url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e');"></div>
+
+<!-- TESTIMONIOS -->
+<section class="section fade">
+  <div class="content">
+    <h2>Testimonios</h2>
+    <p>
+      “Fue la mejor decisión que tomamos. Todo fue perfecto.”<br><br>
+      “Superó completamente nuestras expectativas.”
+    </p>
+  </div>
+</section>
+
+<!-- CONTACTO -->
 <section class="section fade">
   <form id="contactForm">
     <input name="nombre" placeholder="Nombre" required>
@@ -205,14 +118,14 @@ footer{
   </form>
 </section>
 
-<a class="float" href="https://wa.me/573046338009">Mensaje</a>
+<a class="float" href="https://wa.me/573046338009">WhatsApp</a>
 
 <footer>
   © 2026 · Wedding Planner
 </footer>
 
 <script>
-// SCROLL ANIMATIONS
+// SCROLL ANIMATION
 const fades = document.querySelectorAll(".fade");
 
 window.addEventListener("scroll", ()=>{
