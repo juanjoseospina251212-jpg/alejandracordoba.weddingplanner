@@ -17,7 +17,7 @@ body{
   color:#4a4036;
 }
 
-/* HERO CON IMAGEN */
+/* HERO */
 .hero{
   height:100vh;
   background:url('https://images.unsplash.com/photo-1606800052052-a08af7148866?fm=jpg&q=60&w=3000') center/cover;
@@ -32,21 +32,22 @@ body{
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(255,255,255,0.6);
+  background:rgba(255,255,255,0.65);
 }
 
 .hero-content{
   position:relative;
+  max-width:700px;
   animation:fadeUp 1s ease;
 }
 
 .hero h1{
   font-family:'Playfair Display',serif;
-  font-size:52px;
+  font-size:56px;
 }
 
 .hero p{
-  margin-top:10px;
+  margin-top:15px;
   opacity:0.7;
 }
 
@@ -59,61 +60,63 @@ body{
   cursor:pointer;
 }
 
-/* ANIMACIÓN */
+/* ANIMACIONES */
 @keyframes fadeUp{
   from{opacity:0; transform:translateY(40px);}
   to{opacity:1; transform:translateY(0);}
 }
 
-/* TEXTO */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s;
+}
+
+.fade.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* SECCIONES */
+.section{
+  padding:120px 20px;
+}
+
 .content{
   max-width:800px;
   margin:auto;
-  padding:100px 20px;
   text-align:center;
-  line-height:1.8;
+  line-height:1.9;
+  font-size:18px;
 }
 
-/* CARRUSEL */
-.carousel{
-  position:relative;
-  overflow:hidden;
-  max-width:900px;
-  margin:60px auto;
-  border-radius:20px;
+/* PORTAFOLIO GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  max-width:1100px;
+  margin:auto;
 }
 
-.track{
-  display:flex;
-  transition:transform 0.6s ease;
-}
-
-.track img{
+.grid img{
   width:100%;
-  height:500px;
+  height:350px;
   object-fit:cover;
+  border-radius:15px;
 }
 
-/* FLECHAS */
-.arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:#ffffffcc;
-  border:none;
-  font-size:24px;
-  padding:12px;
-  cursor:pointer;
-  border-radius:50%;
+/* BANNER GRANDE */
+.banner{
+  height:500px;
+  background:url('https://luciasecasa.com/wp-content/uploads/2024/04/novios-boda-baile-e1716975372265-960x1183.jpg') center/cover;
+  margin:80px 0;
 }
-
-.left{left:10px;}
-.right{right:10px;}
 
 /* FORM */
 form{
   max-width:600px;
-  margin:100px auto;
+  margin:auto;
   display:grid;
   gap:15px;
 }
@@ -124,6 +127,7 @@ input,textarea{
   border:1px solid #ddd;
 }
 
+/* BOTÓN */
 button{
   padding:15px;
   border:none;
@@ -132,7 +136,7 @@ button{
   cursor:pointer;
 }
 
-/* BOTÓN FLOTANTE */
+/* FLOAT */
 .float{
   position:fixed;
   bottom:20px;
@@ -142,13 +146,12 @@ button{
   padding:15px 20px;
   border-radius:30px;
   text-decoration:none;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
 /* FOOTER */
 footer{
   text-align:center;
-  padding:40px;
+  padding:60px;
   opacity:0.6;
 }
 </style>
@@ -166,52 +169,60 @@ footer{
 </section>
 
 <!-- TEXTO -->
-<section class="content">
-  Creamos bodas que no solo se ven increíbles, sino que se sienten.
-  Diseñamos cada detalle para transformar tu historia en una experiencia inolvidable.
+<section class="section fade">
+  <div class="content">
+    Creamos bodas que no solo se ven increíbles, sino que se sienten.
+    Diseñamos cada detalle para transformar tu historia en una experiencia inolvidable.
+  </div>
 </section>
 
-<!-- CARRUSEL -->
-<div class="carousel">
-  <button class="arrow left">&#10094;</button>
-  <div class="track">
+<!-- GRID -->
+<section class="section fade">
+  <div class="grid">
+    <img src="https://images.squarespace-cdn.com/content/v1/56216fc2e4b059c47b425496/aeaa823f-5935-40a2-9d7d-8f6a4af0338a/Las+fotos+que+no+pueden+faltar+en+el+d%C3%ADa+de+tu+boda?format=2500w">
     <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?fm=jpg&q=60&w=3000">
     <img src="https://luciasecasa.com/wp-content/uploads/2024/04/novios-boda-baile-e1716975372265-960x1183.jpg">
-    <img src="https://images.squarespace-cdn.com/content/v1/56216fc2e4b059c47b425496/aeaa823f-5935-40a2-9d7d-8f6a4af0338a/Las+fotos+que+no+pueden+faltar+en+el+d%C3%ADa+de+tu+boda?format=2500w">
   </div>
-  <button class="arrow right">&#10095;</button>
-</div>
+</section>
+
+<!-- BANNER -->
+<div class="banner"></div>
+
+<!-- TEXTO 2 -->
+<section class="section fade">
+  <div class="content">
+    Cada boda es una historia distinta. Nuestro objetivo es convertir cada detalle en una experiencia inolvidable para ti y tus invitados.
+  </div>
+</section>
 
 <!-- FORM -->
-<form id="contactForm">
-  <input name="nombre" placeholder="Nombre" required>
-  <input name="email" placeholder="Email" required>
-  <textarea name="mensaje" placeholder="Cuéntanos tu idea"></textarea>
-  <button type="submit">Enviar</button>
-</form>
+<section class="section fade">
+  <form id="contactForm">
+    <input name="nombre" placeholder="Nombre" required>
+    <input name="email" placeholder="Email" required>
+    <textarea name="mensaje" placeholder="Cuéntanos tu idea"></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
 
-<!-- BOTÓN FLOTANTE -->
-<a class="float" href="https://wa.me/573046338009" target="_blank">Mensaje</a>
+<a class="float" href="https://wa.me/573046338009">Mensaje</a>
 
 <footer>
-  © 2026 · Wedding Planner · alecorgu11@gmail.com
+  © 2026 · Wedding Planner
 </footer>
 
 <script>
-// CARRUSEL
-const track = document.querySelector(".track");
-const imgs = document.querySelectorAll(".track img");
-let i = 0;
+// SCROLL ANIMATIONS
+const fades = document.querySelectorAll(".fade");
 
-document.querySelector(".right").onclick = ()=>{
-  i=(i+1)%imgs.length;
-  track.style.transform=`translateX(-${i*100}%)`;
-};
-
-document.querySelector(".left").onclick = ()=>{
-  i=(i-1+imgs.length)%imgs.length;
-  track.style.transform=`translateX(-${i*100}%)`;
-};
+window.addEventListener("scroll", ()=>{
+  fades.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add("visible");
+    }
+  });
+});
 
 // FORM
 document.querySelector("#contactForm").addEventListener("submit", async(e)=>{
@@ -219,16 +230,14 @@ document.querySelector("#contactForm").addEventListener("submit", async(e)=>{
 
   const f = e.target;
 
-  const data = {
-    nombre:f.nombre.value,
-    email:f.email.value,
-    mensaje:f.mensaje.value
-  };
-
   await fetch("/api/leads",{
     method:"POST",
     headers:{"Content-Type":"application/json"},
-    body:JSON.stringify(data)
+    body:JSON.stringify({
+      nombre:f.nombre.value,
+      email:f.email.value,
+      mensaje:f.mensaje.value
+    })
   });
 
   alert("Mensaje enviado");
