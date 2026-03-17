@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wedding Planner</title>
+<title>María Alejandra Córdoba Gutiérrez | Wedding Planner</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
@@ -16,15 +16,15 @@ body {
   color: #5a4d42;
 }
 
+/* HEADER */
 header {
   text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(to bottom, #ffffff, #f5efe9);
+  padding: 100px 20px 60px;
 }
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 48px;
+  font-size: 42px;
   margin: 0;
 }
 
@@ -34,30 +34,57 @@ h1 {
   opacity: 0.7;
 }
 
+.rating {
+  margin-top: 10px;
+  font-size: 22px;
+}
+
+/* CARRUSEL */
+.carousel {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  border: none;
+  font-size: 28px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.left { left: 10px; }
+.right { right: 10px; }
+
+/* FORM */
 .section {
   padding: 80px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 20px;
-  object-fit: cover;
-  height: 300px;
 }
 
 form {
-  display: grid;
-  gap: 15px;
   max-width: 600px;
   margin: auto;
+  display: grid;
+  gap: 15px;
 }
 
 input, textarea {
@@ -73,7 +100,6 @@ button {
   padding: 15px;
   border-radius: 30px;
   cursor: pointer;
-  font-weight: 500;
   transition: 0.3s;
 }
 
@@ -93,22 +119,27 @@ footer {
 <body>
 
 <header>
-  <h1>Wedding Planner</h1>
-  <div class="subtitle">Creamos bodas elegantes, íntimas y memorables</div>
+  <h1>María Alejandra Córdoba Gutiérrez</h1>
+  <div class="subtitle">Wedding Planner · Diseñadora de momentos inolvidables</div>
+  <div class="rating">★ ★ ★ ★ ★</div>
 </header>
 
-<section class="section">
-  <h2 style="text-align:center;font-family:'Playfair Display';">Galería</h2>
+<!-- CARRUSEL -->
+<div class="carousel">
+  <button class="arrow left">&#10094;</button>
 
-  <div class="gallery">
+  <div class="carousel-track">
     <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?fm=jpg&q=60&w=3000">
     <img src="https://luciasecasa.com/wp-content/uploads/2024/04/novios-boda-baile-e1716975372265-960x1183.jpg">
     <img src="https://images.squarespace-cdn.com/content/v1/56216fc2e4b059c47b425496/aeaa823f-5935-40a2-9d7d-8f6a4af0338a/Las+fotos+que+no+pueden+faltar+en+el+d%C3%ADa+de+tu+boda?format=2500w">
   </div>
-</section>
 
+  <button class="arrow right">&#10095;</button>
+</div>
+
+<!-- CONTACTO -->
 <section class="section">
-  <h2 style="text-align:center;font-family:'Playfair Display';">Contáctanos</h2>
+  <h2 style="text-align:center;font-family:'Playfair Display'">Contáctanos</h2>
 
   <form id="contactForm">
     <input name="nombre" placeholder="Nombre completo" required>
@@ -127,49 +158,66 @@ footer {
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("#contactForm");
+// CARRUSEL
+const track = document.querySelector(".carousel-track");
+const images = document.querySelectorAll(".carousel img");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+let index = 0;
 
-    const btn = form.querySelector("button");
-    const originalText = btn.innerText;
+document.querySelector(".right").onclick = () => {
+  index = (index + 1) % images.length;
+  update();
+};
 
-    btn.innerText = "Enviando...";
-    btn.disabled = true;
+document.querySelector(".left").onclick = () => {
+  index = (index - 1 + images.length) % images.length;
+  update();
+};
 
-    const data = {
-      nombre: form.nombre.value.trim(),
-      email: form.email.value.trim(),
-      telefono: form.telefono.value.trim(),
-      fecha: form.fecha.value,
-      ubicacion: form.ubicacion.value.trim(),
-      invitados: form.invitados.value.trim(),
-      mensaje: form.mensaje.value.trim()
-    };
+function update() {
+  track.style.transform = `translateX(-${index * 100}%)`;
+}
 
-    try {
-      const res = await fetch("/api/leads", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      });
+// FORMULARIO
+document.querySelector("#contactForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-      if (!res.ok) throw new Error();
+  const form = e.target;
+  const btn = form.querySelector("button");
 
-      alert("Mensaje enviado ✨");
-      form.reset();
+  btn.innerText = "Enviando...";
+  btn.disabled = true;
 
-    } catch {
-      alert("Error al enviar");
-    }
+  const data = {
+    nombre: form.nombre.value,
+    email: form.email.value,
+    telefono: form.telefono.value,
+    fecha: form.fecha.value,
+    ubicacion: form.ubicacion.value,
+    invitados: form.invitados.value,
+    mensaje: form.mensaje.value
+  };
 
-    btn.innerText = originalText;
-    btn.disabled = false;
-  });
+  try {
+    const res = await fetch("/api/leads", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!res.ok) throw new Error();
+
+    alert("Mensaje enviado ✨");
+    form.reset();
+
+  } catch {
+    alert("Error al enviar");
+  }
+
+  btn.innerText = "Enviar mensaje";
+  btn.disabled = false;
 });
 </script>
 
